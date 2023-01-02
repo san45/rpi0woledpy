@@ -18,7 +18,7 @@ oled.show()
 # display image from web 
 
 url= "https://python-pillow.org/images/pillow-logo.png"
-img=  Image.open(urlopen(url)).resize((128,64), Image.ANTIALIAS).convert('1')                                                                             onvert('1')
+img=  Image.open(urlopen(url)).resize((128,64), Image.ANTIALIAS).convert('1')
 oled.image(img)
 oled.show()
 
