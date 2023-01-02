@@ -26,11 +26,16 @@ def disp_image(url):
     oled.show()
 
 
-def disp_text(text,x,y):
+def disp_text(text):
     font = ImageFont.load_default()
     image = Image.new("1", (oled.width, oled.height))
     draw = ImageDraw.Draw(image)
-    draw.text((x, y), text, font=font, fill=255)
+    l=len(text)
+    if  l > 21 and l < 127 :
+        for i in range(0,l//21-1):
+            draw.text((0, i*10)), text[i*21:], font=font, fill=255)
+    else:
+            draw.text((0, 0)), "large text", font=font, fill=255)
     oled.image(image)
     oled.show()
 
