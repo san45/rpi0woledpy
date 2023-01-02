@@ -4,12 +4,12 @@ import busio
 from PIL import Image, ImageDraw, ImageFont
 from urllib.request import urlopen
 
-def init():
-    i2c = busio.I2C(board.SCL, board.SDA)
-    oled = adafruit_ssd1306.SSD1306_I2C(128,64,i2c,addr=0x3c)
-    # display white on screen
-    oled.fill(1)
-    oled.show()
+
+i2c = busio.I2C(board.SCL, board.SDA)
+oled = adafruit_ssd1306.SSD1306_I2C(128,64,i2c,addr=0x3c)
+# display white on screen
+oled.fill(1)
+oled.show()
 
 #display black on screen
 def clrscr():
