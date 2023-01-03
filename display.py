@@ -38,7 +38,7 @@ def disp_text(text):
     elif l > 127:
         for i in range(0,5):
             draw.text((0, i*10), text[i*21:], font=font, fill=255)
-            print( text[i*21:],i
+            print( text[i*21:],i)
         lastline= text[6*21:-3]+"..."
         draw.text((0, 60),lastline, font=font, fill=255)
     else:
