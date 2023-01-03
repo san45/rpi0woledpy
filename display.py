@@ -1,6 +1,8 @@
 import adafruit_ssd1306
 import board
 import busio
+import requests
+import time
 from PIL import Image, ImageDraw, ImageFont
 from urllib.request import urlopen
 
@@ -47,6 +49,18 @@ def disp_text(text):
     oled.image(image)
     oled.show()
 
+def news_reader(token):
+    url=f"https://newsapi.org/v2/top-headlines?country=in&apiKey={token}"
+    response=requests.get(url)
+    if response.status_code == 200 :
+        resp_json=response.json()
+        for each in resp_json['articles']:
+            disp_image(each['urlToImage'])
+            time.sleep(2)
+            disp_text(each['title'])
+            time.sleep(5)
+    else:
+        disp_text("Unable to fetch news")
 
 # more https://learn.adafruit.com/monochrome-oled-breakouts/circuitpython-usage
 
