@@ -34,6 +34,7 @@ def disp_text(text):
     if  l in range(21,127):
         for i in range(0,l//21-1):
             draw.text((0, i*10), text[i*21:], font=font, fill=255)
+            print( text[i*21:],i)
     elif l > 127:
             draw.text((0, 0), "large text", font=font, fill=255)
     else:
