@@ -32,11 +32,15 @@ def disp_text(text):
     draw = ImageDraw.Draw(image)
     l=len(text)
     if  l in range(21,127):
-        for i in range(0,l//21-1):
+        for i in range(0,l//21+1):
             draw.text((0, i*10), text[i*21:], font=font, fill=255)
             print( text[i*21:],i)
     elif l > 127:
-            draw.text((0, 0), "large text", font=font, fill=255)
+        for i in range(0,5):
+            draw.text((0, i*10), text[i*21:], font=font, fill=255)
+            print( text[i*21:],i
+        lastline= text[6*21:-3]+"..."
+        draw.text((0, 60),, font=font, fill=255)
     else:
             draw.text((0, 0), text, font=font, fill=255)
     oled.image(image)
