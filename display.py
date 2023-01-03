@@ -40,7 +40,7 @@ def disp_text(text):
             draw.text((0, i*10), text[i*21:], font=font, fill=255)
             print( text[i*21:],i
         lastline= text[6*21:-3]+"..."
-        draw.text((0, 60),, font=font, fill=255)
+        draw.text((0, 60),lastline, font=font, fill=255)
     else:
             draw.text((0, 0), text, font=font, fill=255)
     oled.image(image)
