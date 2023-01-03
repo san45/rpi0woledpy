@@ -55,10 +55,12 @@ def news_reader(token):
     if response.status_code == 200 :
         resp_json=response.json()
         for each in resp_json['articles']:
-            disp_image(each['urlToImage'])
-            time.sleep(2)
-            disp_text(each['title'])
-            time.sleep(5)
+            if each['urlToImage'] is not 'null':
+                disp_image(each['urlToImage'])
+                time.sleep(2)
+            if each['title'] is not 'null':
+                disp_text(each['title'])
+                time.sleep(5)
     else:
         disp_text("Unable to fetch news")
 
